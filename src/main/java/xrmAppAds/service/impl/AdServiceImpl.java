@@ -1,15 +1,14 @@
 package xrmAppAds.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import xrmAppAds.model.Ads;
 import xrmAppAds.repository.AdRepository;
 import xrmAppAds.service.api.AdService;
 
-import java.io.PrintWriter;
-import java.util.List;
+
 
 /**
  * Created by diran on 08.12.2016.
@@ -22,7 +21,7 @@ public class AdServiceImpl implements AdService {
 
     public List<Ads> findAds(String text)
     {
-        return adRepository.findAdByAdTextLike(text); // разобраться!
+        return adRepository.findAdsByAdTextLike(text);
     }
 
     public List<Ads> getAllAds()
@@ -32,4 +31,8 @@ public class AdServiceImpl implements AdService {
 
         return ads;
     }
+   /* public Ads findById(Integer id)
+    {
+        return adRepository.findAdsByIdLike(id);
+    }*/
 }

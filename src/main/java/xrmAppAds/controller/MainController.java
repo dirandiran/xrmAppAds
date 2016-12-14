@@ -20,9 +20,9 @@ public class MainController  {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView actionGet() {
-
-        Logger log = Logger.getLogger(MainController.class.getName());
-        return new ModelAndView("index");
+        ModelAndView modelAndView = new ModelAndView("index");
+        modelAndView.addObject("adText",new String());
+        return modelAndView;
     }
 
 }

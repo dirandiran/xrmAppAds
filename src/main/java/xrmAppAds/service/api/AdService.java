@@ -10,4 +10,5 @@ import java.util.List;
 public interface AdService {
     List<Ads> findAds(String text);
     List<Ads> getAllAds();
+   // Ads findById(Integer id);
 }

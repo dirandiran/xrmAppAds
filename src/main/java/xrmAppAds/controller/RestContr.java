@@ -1,10 +1,7 @@
 package xrmAppAds.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import xrmAppAds.model.Ads;
 import xrmAppAds.service.api.AdService;
 
@@ -13,7 +10,7 @@ import java.util.List;
 /**
  * Created by diran on 08.12.2016.
  */
-@RequestMapping("/json")
+@RequestMapping("/index")
 @RestController
 public class RestContr {
 
@@ -29,8 +26,10 @@ public class RestContr {
 
    @ResponseBody
    @RequestMapping(value = "/ajaxAd", method = RequestMethod.POST)
-   public List<Ads> qetAd(String text)
+   public List<Ads> qetAd(@RequestBody Ads adText)
    {
-       return adService.findAds(text);
+
+       System.out.println(adText.getAdText());
+       return adService.findAds("%"+adText.getAdText()+"%");
    }
 }
